@@ -1,0 +1,229 @@
+
+# if 7 > 3:
+#     print('To oczywiste')
+
+# if 10 < 4:
+#     print("To się nie zdarzy")
+
+# name = input('Jak się nazywasz? ')
+# if len(name) >= 7:
+#     print(f' {name} to całkiem długie imie')
+# if len(name) < 7:
+#     print(f' {name} to całkiem krótkie imie')
+
+# age = int(input('Ile masz lat? '))
+# if age < 18:
+#     print("Jeszcze nie możesz głosować")
+# if age >= 18:
+#     print("Możesz głosować")
+# if age >= 21:
+#     print('Możesz kandydować na posła')
+# if age >= 30:
+#     print('MOżesz kandydować na senatora')
+# if age >= 35:
+#     print('MOżesz kandydować na prezydenta')
+
+# if 7 > 3:
+#     print('To oczywiste')
+# else:
+#     print('To się nie wydarzy')
+#
+# if 10 < 4:
+#     print("To się nie zdarzy")
+# else:
+#     print('A to się wydarzy zawsze')
+
+# name = input('Jak się nazywasz? ')
+# if len(name) >= 7:
+#     print(f' {name} to całkiem długie imie')
+# else:
+#     print(f' {name} to całkiem krótkie imie')
+
+# age = int(input('Ile masz lat? '))
+#
+# if age < 18:
+#         print("Jeszcze nie możesz głosować")
+# else:
+#         print("Możesz głosować")
+
+# Ropa = float(input("Wypisz cene ropy "))
+# Złoto = float(input("Wypisz cene złota "))
+# Zboże = float(input("Wypisz cene zboża "))
+
+# print(f'Czy ropa jest droższa od złota? {Ropa > Złoto}')
+# print(f'Czy ropa jest tańsza od złota? {Ropa < Złoto}')
+# print(f'Czy zboże jest równe cenie ropy? {Zboże == Ropa}')
+# print(f'Czy zboże jest różne od złota? {Zboże != Złoto}')
+# print(f'Czy zboże jest równe lub większe od złota? {Zboże >= Złoto}')
+#
+
+
+# lista = input('Wypisz liste zakupów ')
+# shopping_list = lista.split(',')
+#
+# if len(shopping_list) > 4:
+#     print("TO długa lista")
+# else:
+#     print("To krótka lista")
+
+# wydatki_procentowo = {}
+#
+# food = float(input("Ile miesięcznie wydajesz na jedzenie? "))
+# fun = float(input("Ile miesięcznie wydajesz na rozrywkę? "))
+# media = float(input("Ile miesięcznie wydajesz na opłaty? "))
+# other = float(input("Ile miesięcznie wydajesz na inne? "))
+#
+# Total = food + fun + media + other
+#
+# Jedzenie = food * 100 / Total
+# Rozrywka = fun * 100 / Total
+# Opłaty = media * 100 / Total
+# Inne = other * 100 / Total
+#
+# wydatki_procentowo["Jedzenie"] = Jedzenie
+# wydatki_procentowo["Rozrywka"] = Rozrywka
+# wydatki_procentowo["Opłaty"] = Opłaty
+# wydatki_procentowo["Inne"] = Inne
+#
+# if Jedzenie == max(Jedzenie, Rozrywka, Opłaty,  Inne):
+#     print(f'Najwięcej wydajesz na jedzenie i jest to {Jedzenie:.2f} % wydatków')
+#
+# else:
+#     if Rozrywka == max(Jedzenie, Rozrywka, Opłaty,  Inne):
+#         print(f'Najwięcej wydajesz na Rozrywke i jest to {Rozrywka:.2f} % wydatków')
+#     if Opłaty == max(Jedzenie, Rozrywka, Opłaty, Inne):
+#         print(f'Najwięcej wydajesz na opłaty i jest to {Opłaty:.2f} % wydatków')
+#     if Inne == max(Jedzenie, Rozrywka, Opłaty, Inne):
+#         print(f'Najwięcej wydajesz na inne i jest to {Inne:.2f} % wydatków')
+
+# Matematyka = float(input('Jak jest twoja ocena z matematyki? '))
+# Fizyka = float(input('Jak jest twoja ocena z fizyki? '))
+# Chemia = float(input('Jak jest twoja ocena z chemii? '))
+# Biologia = float(input('Jak jest twoja ocena z biologii? '))
+#
+# Average = (Matematyka + Fizyka + Chemia + Biologia) / 4
+#
+# number_of_failures = 0
+#
+# if Matematyka < 2:
+#     number_of_failures = number_of_failures +1
+# if Fizyka < 2:
+#     number_of_failures = number_of_failures +1
+# if Chemia < 2:
+#     number_of_failures = number_of_failures +1
+# if Biologia < 2:
+#     number_of_failures = number_of_failures +1
+#
+# if number_of_failures == 0 or number_of_failures == 1 and Average > 3.5:
+#     print("Zdałeś")
+# else:
+#     print('Nie zdałeś')
+
+# name = input("Jak masz na imię? ")
+#
+# if name[-1] == 'a':
+#     print('Jesteś kobietą')
+# else:
+#     print('Jesteś mężczyzną')
+
+
+# name = input('Jak się nazywasz? ')
+# name_length = len(name)
+#
+# if name_length < 5:
+#     print(f'{name} to krótkie imie')
+# if name_length >= 5:
+#     if name_length <= 8:
+#         print(f'{name} to imie zwykłej długości')
+#     else:
+#         print(f' {name }to długie imie')
+
+# urodzenie = input("Czy jesteś obywatelem USA od urodzenia? (T/N) ")
+# age = int(input('Ile masz lat? '))
+# rezydencja = int(input('Ile lat mieszkasz w USA? '))
+#
+# if urodzenie == "T":
+#     urodzony = True
+# else: urodzony = False
+#
+# if urodzony:
+#     if age >= 35:
+#         if rezydencja >= 14:
+#             print('MOżesz kandydować')
+#         else:
+#             print('Nie możesz kandydować')
+#     else:
+#         print('Nie możesz kandydować')
+# else:
+#     print('Nie możesz kandydować')
+
+# name = input('Jak się nazywasz? ')
+# name_length = len(name)
+
+# if name_length < 5:
+#     print(f'{name} to krótkie imie')
+# if name_length >= 5 and name_length <= 8:
+#         print(f'{name} to imie zwykłej długości')
+# else:
+#     print(f' {name }to długie imie')
+
+# if name_length < 5:
+#     print(f'{name} to krótkie imie')
+# if 5 <= name_length <= 8:
+#         print(f'{name} to imie zwykłej długości')
+# else:
+#     print(f' {name} to długie imie')
+
+# urodzenie = input("Czy jesteś obywatelem USA od urodzenia? (T/N) ")
+# age = int(input('Ile masz lat? '))
+# rezydencja = int(input('Ile lat mieszkasz w USA? '))
+#
+# if urodzenie == "T":
+#     urodzony = True
+# else: urodzony = False
+#
+# if urodzony and age >= 35 and rezydencja >= 14:
+#             print('MOżesz kandydować')
+# else:
+#     print('Nie możesz kandydować')
+
+# income = float(input('Jaki jest miesiesięczny przychód twojej firmy? '))
+# employees = int(input('Ilu pracowników zatrudniasz? '))
+# answer = input('Czy firma już otrzymała wsparcie? (T/N) ')
+
+# if income < 15500 or employees >= 3:
+#     print('Możesz otrzymać dotacje')
+# else:
+#     print('NIe możesz otryzmać dotacji')
+
+# if income < 15500 or employees >= 3 and income < 30000:
+#     print('Możesz otrzymać dotacje')
+# else:
+#     print('Nie możesz otrzymać dotacji')
+
+# if answer == "T":
+#     answer_used = True
+# else:
+#     answer_used = False
+#
+# if not answer_used and income < 15500 or employees >= 3:
+#     print('Możesz otrzymać dotacje')
+# else:
+#         print('Nie możesz otrzymać dotacji')
+
+# if not 3 < 2:
+#     print('3 nie jest mniejsze niż 2')
+
+# income = 4000
+# expenditures = 2000
+# age = 35
+
+# if age < 18 or income < expenditures:
+#     print('Nie możesz wziąc kredytu')
+# else:
+#     print('Możesz wziąć kredyt')
+#
+# if not (age < 18 or income < expenditures):
+#     print('Możesz wziąć kredyt')
+# else:
+#     print('Nie możesz wziąć kredyt')

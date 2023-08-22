@@ -1,0 +1,99 @@
+
+# favourite_sports = [
+#     'piłka nożna',
+#     'koszykówka',
+#     'pływanie',
+#     'siatkówka',
+#     'hokej'
+# ]
+#
+# print('Pierwszy sport to:', favourite_sports[0])
+# print('Ostatni sport to:', favourite_sports[-1])
+# favourite_sports[0] = 'football'
+# print("Zmieniłem zdanie, moje ulubione sporty to:", favourite_sports)
+
+# Pierwsza_potrawa = input("Jaka jest twoja ulubiona potrawa? ")
+# Druga_potrawa = input("Jaka jest twoja druga ulubiona potrawa? ")
+# Trzecia_potrawa = input("Jaka jest twoja trzecia ulubiona potrawa? ")
+#
+# Lista = [
+#     Pierwsza_potrawa,
+#     Druga_potrawa,
+#     Trzecia_potrawa
+# ]
+# print("Twoje ulubione potrawy to:", Lista)
+
+Numer = input("Jaki jest twój numer telefonu? ")
+Telefon = Numer[:6] + "---"
+print("Twój numer telefonu to:", Telefon)
+
+
+polish_to_english = {
+    "amnezja": "amnesia",
+    "aktywista": "activist",
+    "burza": "storm"
+}
+
+# print("Słownik polsko angielski:", polish_to_english)
+
+# print(f"Po polsku 'burza' to po angielsku '{polish_to_english['burza']}'")
+
+empty = {}
+# print("Pusty słownik:", empty)
+
+expenditures = {
+    "prąd": [250],
+    "woda": [30.45],
+    "zakupy": [
+        120.15,
+        170.53,
+        20.15
+    ]
+}
+# print(expenditures)
+
+teacher = {
+    "first_name": "Jan",
+    "last_name": "Kowalski",
+    "age": 45,
+    "contract": {
+        "sign_date": "23-11-2018",
+        "salary": 3500
+    }
+}
+# print(f'Miesięczna pensja nauczyciela {teacher["last_name"]} wynosi {"contract"["salary"]} złotych')
+
+students = [
+    {
+    "first_name": "Patryk",
+    "last_name": "Nowak"
+    },
+    {
+    "first_name": "Alicja",
+    "last_name": "Kowalska"
+    }
+]
+
+# print(students)
+# print(students[0])
+# print(students[1])
+# print(students[1]['first_name'])
+
+# print(teacher)
+# teacher["first_name"] = "Albert"
+# print(teacher)
+# teacher["city"] = "Gdańsk"
+# del teacher["last_name"]
+# print(teacher["car"])
+# age = teacher.pop("age")
+# print(age)
+# print(teacher.keys())
+# print(teacher.values())
+#
+# keys = list(teacher.keys())
+# values = list(teacher.values())
+#
+# print(keys)
+# print(values)
+
+print(len(teacher))
