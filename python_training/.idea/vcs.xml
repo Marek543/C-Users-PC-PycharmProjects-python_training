@@ -2,8 +2,8 @@
 <project version="4">
   <component name="VcsDirectoryMappings">
     <mapping directory="$PROJECT_DIR$/.." vcs="Git" />
-    <mapping directory="$PROJECT_DIR$/Początek/Zadania/example/PythON_Poczatek" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Zrozumiećprogramowanie" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Zrozumiećprogramowanie/Początek/Zadania/example/PythON_Poczatek" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/Zrozumiećprogramowanie/przykład" vcs="Git" />
   </component>
 </project>
