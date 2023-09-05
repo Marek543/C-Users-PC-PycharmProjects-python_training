@@ -3,3 +3,4 @@ class Apple:
         self.price = price
         self.size = size
         self.species_name = species_name
+
