@@ -5,4 +5,4 @@ class Product:
         self.name =name
 
     def print_product(self):
-        print(f'Nazwa: {self.name} | Kategoria: {self.category_name} | Cena: {self.unit_price} /szt')
+        print(f'Nazwa: {self.name} | Kategoria: {self.category_name} | Cena: {self.unit_price} PLN/szt')
