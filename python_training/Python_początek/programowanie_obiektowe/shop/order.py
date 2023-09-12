@@ -4,12 +4,17 @@ from shop.order_element import OrderElement
 
 
 class Order:
+
+    MAX_NUMBER_OF_ORDER_ELEMENTS = 5
     def __init__(self, client_first_name, client_last_name, order_elements=None):
         self.client_last_name = client_last_name
         self.client_first_name = client_first_name
 
         if order_elements is None:
             order_elements = []
+        if len(order_elements) > Order.MAX_NUMBER_OF_ORDER_ELEMENTS:
+            order_elements = order_elements[:Order.MAX_NUMBER_OF_ORDER_ELEMENTS]
+
         self._order_elements = order_elements
         self.total_price = self._total_order_price()
 
@@ -21,8 +26,11 @@ class Order:
 
     def add_product_to_the_order(self, product, amount):
         new_order_element = OrderElement(product, amount)
-        self._order_elements.append(new_order_element)
-        self.total_price = self._total_order_price()
+        if len(self._order_elements) >= Order.MAX_NUMBER_OF_ORDER_ELEMENTS:
+            print('Nie ma już miejsca w zamówieniu')
+        else:
+            self._order_elements.append(new_order_element)
+            self.total_price = self._total_order_price()
 
 
 
@@ -65,16 +73,17 @@ class Order:
         return True
 
 
-def generate_order():
-    number_of_product = random.randint(1, 10)
-    products = []
-    for product_number in range(number_of_product):
-        product_name = f'Produkt-{product_number}'
-        category_name = "Inne"
-        unit_price = random.randint(1, 30)
-        amount = random.randint(1,50)
-        product = Product(product_name, category_name, unit_price)
-        order_element = OrderElement(product, amount)
-        products.append(order_element)
-    order = Order(client_first_name='Mikołaj', client_last_name='Lewandowski', order_elements=products)
-    return order
+    @classmethod
+    def generate_order(cls, number_of_products):
+        # number_of_products = random.randint(1, Order.MAX_NUMBER_OF_ORDER_ELEMENTS)
+        products = []
+        for product_number in range(number_of_products):
+            product_name = f'Produkt-{product_number}'
+            category_name = "Inne"
+            unit_price = random.randint(1, 30)
+            amount = random.randint(1,50)
+            product = Product(product_name, category_name, unit_price)
+            order_element = OrderElement(product, amount)
+            products.append(order_element)
+        order = Order(client_first_name='Mikołaj', client_last_name='Lewandowski', order_elements=products)
+        return order
