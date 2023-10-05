@@ -1,4 +1,4 @@
-
+import random
 from shop.apple import Apple
 from shop.potato import Potato
 from shop.order import Order
@@ -6,6 +6,9 @@ from shop.product import Product
 from shop.order_element import OrderElement
 from shop.order import Order
 from shop.tax_calculator import TaxCalculator
+from shop.discount import Discount
+from shop import data_generator
+from shop.product import ExpandedProduct, ExpiringProduct
 
 def compare_lists(first,second):
     for order in first:
@@ -60,5 +63,64 @@ def run_homework():
     #     print('Te zamówienia są różne')
 
 
+
+def generate_multiple_orders():
+    number_of_orders = 5
+    order_list = []
+    for order in range(number_of_orders):
+        order_list.append(Order.generate_order())
+    # order_list.sort(key=sort_by_total_price)
+    order_list.sort(key=lambda order: order.total_price)
+    for order in order_list:
+        print(order)
+
+def sort_by_total_price(order):
+    return order.total_price
+
+def generate_order_elements_():
+    number_of_products = 5
+    products = []
+    for product_number in range(number_of_products):
+        product_name = f'Produkt-{product_number}'
+        category_name = "Inne"
+        unit_price = random.randint(1, 30)
+        amount = random.randint(1, 50)
+        product = Product(product_name, category_name, unit_price)
+        order_element = OrderElement(product, amount)
+        products.append(order_element)
+    return products
+
+def ex_3():
+    first_name = "Mikołaj"
+    last_name = 'Lewandowski'
+    order_elements = data_generator.generate_order_elements()
+    normal_order = Order(client_first_name=first_name, client_last_name=last_name, order_elements=order_elements)
+    loyal_customer_order = Order(client_first_name=first_name, client_last_name=last_name, order_elements=order_elements, discount_policy=Discount.regular_customer_discount)
+    christmas_order = Order(client_first_name=first_name, client_last_name=last_name, order_elements=order_elements, discount_policy=Discount.holiday_special_discount)
+
+    # print(normal_order)
+    for order_element in normal_order.order_elements:
+        print(order_element)
+    # print(loyal_customer_order)
+    # print(christmas_order)
+
+def ex_4():
+    first_name = "Mikołaj"
+    last_name = 'Lewandowski'
+    order_elements = data_generator.generate_order_elements()
+    order = Order(first_name, last_name, order_elements)
+    print(order)
+    new_order_elements = data_generator.generate_order_elements(12)
+    order.order_elements = new_order_elements
+    print(order)
+    print(order.total_price)
+
+def ex_5():
+    apple = ExpandedProduct(name='jabłko', category_name='owoc', unit_price= 5, expiration_date=2024, year_of_creation=2022)
+    apple_number_2 = ExpiringProduct(name='jabłko', category_name='owoc', unit_price= 5, production_year=2022, validity_years=2)
+    print(apple.does_expire(2025))
+    print(apple_number_2.does_expire(2025))
+
+
 if __name__ == '__main__':
-    run_homework()
+    ex_5()

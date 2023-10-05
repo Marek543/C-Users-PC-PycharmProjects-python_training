@@ -4,6 +4,7 @@ from estudent.school import School
 from estudent.student import Student
 from estudent.config import Config
 from estudent.grade_calculator import GradeCalculator
+from estudent import datagenerator
 
 
 
@@ -25,23 +26,28 @@ def grades_avg_for_student(student):
 def another_example():
     school = School.create_school_with_students('Hogwart')
     students = school.students
-    for student in students:
+    # for student in students:
         # print(student)
         # student.add_final_grade(1, check_promotion_policy=GradeCalculator.strict_promotion_policy)
-        student.add_final_grade(1)
+        # student.add_final_grade(1)
     # print('-' * 20)
-    students.sort(key=grades_avg_for_student, reverse=True)
+    # students.sort(key=grades_avg_for_student, reverse=True)
     for student in students:
         print(student)
+    print('-' * 20)
+    students.sort(key=lambda student: student.grades_avg())
+    for student in students:
+        print(student)
+
 
 def run_example():
 
     # print(Config.ADMINISTRATOR_EMAIL)
     # print(Config.DATABASE_URL)
-    school = School.create_school_with_students('Hogwart')
+    # school = School.create_school_with_students('Hogwart')
     # harry = Student(first_name='Harry', last_name='Potter')
     # school.assign_student(harry)
-    print(school)
+    # print(school)
 
     # new_school = school.create_school_with_students('New school')
     # print(school.MAX_STUDENTS_NUMBER)
@@ -60,6 +66,10 @@ def run_example():
     # final_grades_no_encapsulation(school)
     # print('=' * 20)
     # final_grades_with_encapsulation(school)
+
+    students = datagenerator.generate_students()
+    school = School(name='Hogwart', students=students)
+    print(school)
 
 def example():
     school = School.create_school_with_students('Hogwart')
@@ -94,6 +104,30 @@ def example():
     another_school = School.create_school_with_students('Other')
     print('another_school.MAX_STUDENTS_NUMBER:', another_school.MAX_STUDENTS_NUMBER)
 
+def yet_another_example():
+    students = datagenerator.generate_students()
+    # students.sort(key=lambda student: student.grades_avg(), reverse=True)
+    school = School(name='Hogwart', students=students)
+    # best_student = school.students[0]
+    best_student = school.best_student
+    print(f'Średnia najlepszego ucznia: {best_student.grades_avg}')
+    # print(f'Oceny najlepszego ucznia: {best_student.get_final_grades()}')
+    # print(f'Oceny najlepszego ucznia: {best_student.final_grades}')
+
+def here_we_go_again():
+    students = datagenerator.generate_students()
+    school = School(name='Hogwart', students=students)
+    print(school)
+
+    new_students = datagenerator.generate_students(number_of_students=8)
+    school.students = new_students
+    print(school)
+
+    # too_many_students = datagenerator.generate_students(number_of_students=100)
+    # school.students = too_many_students
+    # print(school)
+
+
 
 if __name__ == '__main__':
-    another_example()
+    here_we_go_again()

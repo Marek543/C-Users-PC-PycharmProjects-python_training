@@ -9,10 +9,21 @@ class Student:
         self._final_grades = []
 
     def __str__(self):
-        return f'Student: {self.first_name} {self.last_name}, promoted: {self.promoted}, średnia: {self.grades_avg():.2f}'
+        return f'Student: {self.first_name} {self.last_name}, promoted: {self.promoted}, średnia: {self.grades_avg:.2f}'
 
+    def get_final_grades(self):
+        return self._final_grades
+
+    @property
+    def final_grades(self):
+        return self._final_grades
+
+    @property
     def grades_avg(self):
         return GradeCalculator.calculate_student_avg(self._final_grades)
+
+    # def grades_avg(self):
+    #     return GradeCalculator.calculate_student_avg(self._final_grades)
 
     def promote(self):
         self.promoted = True
