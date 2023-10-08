@@ -9,7 +9,7 @@ class TaxCalculator:
     @staticmethod
     def calculate_tax(order):
         for order_element in order._order_elements:
-            amount = order_element.total_price
+            amount = order_element.calculate_price
 
             if order_element.product.category_name == 'Owoce i warzywa':
                 tax = amount * TaxCalculator.FRUITS_AND_VEGATABLES
@@ -19,7 +19,7 @@ class TaxCalculator:
                 tax = amount * TaxCalculator.ALL
 
             print(f'Kwota podatku dla pozycji: {order_element.product.name} w zamówieniu wynosi {tax:.2f} PLN')
-            print(f"Całkowity koszt pozycji {order_element.product.name} wynosi {order_element.total_price + tax:.2f} PLN")
+            print(f"Całkowity koszt pozycji {order_element.product.name} wynosi {order_element.calculate_price + tax:.2f} PLN")
             print()
 
 class Tax:
@@ -37,4 +37,4 @@ class Tax:
             tax_rate = Tax.TAX_RATES[product_category]
         else:
             tax_rate = Tax.BASE_TAX_RATE
-        return tax_rate * order_element.total_price()
+        return tax_rate * order_element.calculate_price()

@@ -3,7 +3,7 @@ class OrderElement:
     def __init__(self, product, amount):
         self.amount = amount
         self.product = product
-        self.total_price = self.total_price()
+        self.total_price = self.calculate_price()
 
     def __str__(self):
         return f'{self.product} | Ilość: {self.amount} szt | Kwota: {self.total_price} PLN'
@@ -26,7 +26,7 @@ class OrderElement:
     #     print('\t', end="")
     #     print(f'Cena danej pozycji wynosi {self.total_price()} PLN \n')
 
-    def total_price(self):
+    def calculate_price(self):
         total_price = self.product.unit_price * self.amount
         return total_price
 

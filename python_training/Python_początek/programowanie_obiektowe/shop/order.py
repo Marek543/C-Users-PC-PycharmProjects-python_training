@@ -43,7 +43,7 @@ class Order:
     def _total_order_price(self):
         total_order_price = 0
         for order_element in self._order_elements:
-            total_order_price += order_element.total_price
+            total_order_price += order_element.calculate_price()
         return self.discount_policy(total_order_price)
 
     def add_product_to_the_order(self, product, amount):
@@ -69,7 +69,7 @@ class Order:
     def __str__(self):
         mark_line = '=' * 20
         order_details = f'Zamówienie złożone przez {self.client_first_name} {self.client_last_name}'
-        value_details = f'Łączna wartość zamówienia wynosi {self._total_order_price()} PLN'
+        value_details = f'Łączna wartość zamówienia wynosi {self.total_price} PLN'
         product_details = 'Zamówione produkty:\n'
         for element in self._order_elements:
             product_details += f'\t{element}\n'
@@ -116,10 +116,26 @@ class Order:
         order = Order(client_first_name='Mikołaj', client_last_name='Lewandowski', order_elements=products)
         return order
 
+# return f'Wygenerowano {number_of_orders} losowych zamówień'
+
+class ExpressOrder(Order):
+    def __init__(self, client_first_name, client_last_name, date_of_delivery, order_elements=None, discount_policy=None):
+        super().__init__(client_first_name,client_last_name,order_elements,discount_policy)
+        self.date_of_delivery = date_of_delivery
+
+    @property
+    def total_payment(self):
+        extra_payment = 20
+        return self._total_order_price() + extra_payment
 
 
-
-
-
-        # return f'Wygenerowano {number_of_orders} losowych zamówień'
-
+    def __str__(self):
+        mark_line = '=' * 20
+        order_details = f'Zamówienie złożone przez {self.client_first_name} {self.client_last_name}'
+        date_of_delivery = f'Data dostawy: {self.date_of_delivery}'
+        value_details = f'Łączna wartość zamówienia wynosi {self.total_payment} PLN'
+        product_details = 'Zamówione produkty:\n'
+        for element in self._order_elements:
+            product_details += f'\t{element}\n'
+        result = '\n'.join([mark_line, order_details, date_of_delivery, value_details, product_details, mark_line])
+        return result

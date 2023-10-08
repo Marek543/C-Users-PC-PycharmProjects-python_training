@@ -4,11 +4,12 @@ from shop.potato import Potato
 from shop.order import Order
 from shop.product import Product
 from shop.order_element import OrderElement
-from shop.order import Order
+from shop.order import Order, ExpressOrder
 from shop.tax_calculator import TaxCalculator
 from shop.discount import Discount
 from shop import data_generator
 from shop.product import ExpandedProduct, ExpiringProduct
+from shop.express_order import ExpresssssOrder
 
 def compare_lists(first,second):
     for order in first:
@@ -70,12 +71,12 @@ def generate_multiple_orders():
     for order in range(number_of_orders):
         order_list.append(Order.generate_order())
     # order_list.sort(key=sort_by_total_price)
-    order_list.sort(key=lambda order: order.total_price)
+    order_list.sort(key=lambda order: order.calculate_price)
     for order in order_list:
         print(order)
 
 def sort_by_total_price(order):
-    return order.total_price
+    return order.calculate_price
 
 def generate_order_elements_():
     number_of_products = 5
@@ -107,13 +108,22 @@ def ex_3():
 def ex_4():
     first_name = "Mikołaj"
     last_name = 'Lewandowski'
+    date_of_delivery = '21.10.2023'
     order_elements = data_generator.generate_order_elements()
     order = Order(first_name, last_name, order_elements)
     print(order)
-    new_order_elements = data_generator.generate_order_elements(12)
-    order.order_elements = new_order_elements
-    print(order)
-    print(order.total_price)
+    hastened_order = ExpressOrder(first_name, last_name, date_of_delivery, order_elements)
+    print(hastened_order)
+    quick_order = ExpresssssOrder(
+        date_of_delivery,
+        first_name,
+        last_name,
+        order_elements)
+    print(quick_order)
+    # new_order_elements = data_generator.generate_order_elements(12)
+    # order.order_elements = new_order_elements
+    # print(order)
+    # print(order.total_price)
 
 def ex_5():
     apple = ExpandedProduct(name='jabłko', category_name='owoc', unit_price= 5, expiration_date=2024, year_of_creation=2022)
@@ -123,4 +133,4 @@ def ex_5():
 
 
 if __name__ == '__main__':
-    ex_5()
+    ex_4()
