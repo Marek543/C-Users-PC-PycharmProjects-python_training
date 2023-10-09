@@ -60,20 +60,20 @@ class School:
         self.departments = self._split_students_to_departments()
 
 
-    @classmethod
-    def create_school_with_students(cls, school_name):
-        number_of_students = random.randint(1, cls.MAX_STUDENTS_NUMBER)
-        school = School(school_name, students=[])
-
-        for student_number in range(number_of_students):
-            first_name = f"Student-{student_number}"
-            last_name = "Smith"
-            student = Student(first_name, last_name)
-            school.assign_student(student)
-            for _ in range(Config.RANDOM_FINAL_GRADES_NUMBER):
-                final_grade = random.randint(Config.MIN_RANDOM_GRADE, Config.MAX_RANDOM_GRADE)
-                student.add_final_grade(final_grade)
-        return school
+    # @classmethod
+    # def create_school_with_students(cls, school_name):
+    #     number_of_students = random.randint(1, cls.MAX_STUDENTS_NUMBER)
+    #     school = School(school_name, students=[])
+    #
+    #     for student_number in range(number_of_students):
+    #         first_name = f"Student-{student_number}"
+    #         last_name = "Smith"
+    #         student = Student(first_name, last_name)
+    #         school.assign_student(student)
+    #         for _ in range(Config.RANDOM_FINAL_GRADES_NUMBER):
+    #             final_grade = random.randint(Config.MIN_RANDOM_GRADE, Config.MAX_RANDOM_GRADE)
+    #             student.add_final_grade(final_grade)
+    #     return school
 
         # students = []
         # for student_number in range(number_of_students):
